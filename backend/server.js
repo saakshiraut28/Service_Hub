@@ -1,25 +1,35 @@
 /** @format */
 require("dotenv").config();
+
 const express = require("express");
 const mongo = require("mongoose");
+const service = require("./routes/service");
+const userRoutes = require("./routes/user");
+const serviceProviderRoutes = require("./routes/serviceprovider");
 
-// Initialize the express app
+// Initializing express App
 const app = express();
 
-app.use("/", async (res, req) => {
+// Create middleware kinda thing
+app.use(express.json()); // Will help us to pass JSON object on request
+
+app.use("/", (req, res, next) => {
   next();
 });
 
-// Routes go here
+// Routes
+app.use("/api/service", service);
+app.use("/api/user", userRoutes);
+app.use("/api/spuser", serviceProviderRoutes);
 
-// Connect Database
+// Connect DB
 mongo
-  .connect()
-  .then(
+  .connect(process.env.MONGO_URI)
+  .then(() => {
     app.listen(process.env.PORT, () => {
-      console.log("Listening to Port 4000");
-    })
-  )
+      console.log("Listening to Port ", process.env.PORT);
+    });
+  })
   .catch((error) => {
     console.log(error);
   });
