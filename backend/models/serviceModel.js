@@ -1,5 +1,4 @@
 /** @format */
-/** @format */
 
 const mongoose = require("mongoose");
 
@@ -20,10 +19,6 @@ const serviceSchema = new Schema(
       required: true,
     },
     feedback: {
-      type: String,
-      required: true,
-    },
-    spuser_id: {
       type: String,
       required: true,
     },
