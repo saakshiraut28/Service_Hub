@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import LandingPage from "./pages/CustomerLP";
-import DefaultNavbar from "./components/Navbar";
+import DefaultNavbar from "./components/Navbar/Navbar";
 
 function App() {
   return (

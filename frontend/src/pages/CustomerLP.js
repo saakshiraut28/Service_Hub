@@ -1,5 +1,6 @@
 /** @format */
 import React from "react";
+import Button from "../components/ui/Button";
 
 function LandingPage() {
   return (
@@ -13,7 +14,6 @@ function LandingPage() {
         <p className="text-lg text-[#012A45] font-medium">
           Sending our helpers to your doorsteps.
         </p>
-
         <input
           className="bg-white md:min-w-[500px] min0woutline-none hover:border hover:border-[#012A45] rounded-full px-4 py-1"
           placeholder="Hire someone to do your task."

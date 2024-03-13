@@ -69,7 +69,6 @@ const deleteService = async (req, res) => {
   const delservice = await Service.findByIdAndDelete(id);
   res.status(200).json(delservice);
 };
-
 const updateService = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {

@@ -1,22 +1,17 @@
 /** @format */
 
 const express = require("express");
+const { login, signup, profile } = require("../controllers/userController");
 
 const router = express.Router();
 
 // login route
-router.post("/login", (req, res) => {
-  res.json({ msg: "User Login Successful" });
-});
+router.post("/login", login);
 
 // signup route
-router.post("/signup", (req, res) => {
-  res.json({ msg: "User Signup Successful" });
-});
+router.post("/signup", signup);
 
 // porfile route
-router.get("/profile", (req, res) => {
-  res.json({ msg: "User Profile" });
-});
+router.get("/profile/:id", profile);
 
 module.exports = router;
