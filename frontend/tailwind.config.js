@@ -6,7 +6,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppin: ["Poppins", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
