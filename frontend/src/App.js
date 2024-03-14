@@ -9,6 +9,7 @@ import LandingPage from "./pages/CustomerLP";
 import ServicePage from "./pages/ServicePage";
 import NavbarDefault from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import CustomerProviderProfile from "./pages/CustomerProvider";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/customer" element={<LandingPage />} />
           <Route path="/servicepage" element={<ServicePage />} />
+          <Route path="/provider" element={<CustomerProviderProfile />} />
         </Routes>
         <Footer />
       </BrowserRouter>
