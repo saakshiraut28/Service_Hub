@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import LandingPage from "./pages/CustomerLP";
+import ServicePage from "./pages/ServicePage";
 import NavbarDefault from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/customer" element={<LandingPage />} />
+          <Route path="/servicepage" element={<ServicePage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
