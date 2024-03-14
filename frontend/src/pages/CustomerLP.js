@@ -28,7 +28,7 @@ function LandingPage() {
       </section>
       <hr />
       {/*******     Trending Providers Section      **********/}
-      <section className="trending-section px-4 py-12 lg:px-24 lg:py-24 font-poppin space-y-6">
+      <section className="trending-section px-4 py-12 lg:px-24 lg:py-24 font-poppin space-y-6 ">
         <div className="md:grid-cols-2">
           <div className="grid space-y-6">
             <p className="text-xl text-[#012A45] font-bold">
