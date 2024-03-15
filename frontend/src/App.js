@@ -10,12 +10,13 @@ import ServicePage from "./pages/ServicePage";
 import NavbarDefault from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import CustomerProviderProfile from "./pages/CustomerProvider";
+import HomePageBL from "./pages/HomePageBL";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavbarDefault />
+         <NavbarDefault /> 
         <Routes>
           <Route path="/" element={<Home />} exact />
           <Route path="/about" element={<About />} />
@@ -23,8 +24,9 @@ function App() {
           <Route path="/customer" element={<LandingPage />} />
           <Route path="/servicepage" element={<ServicePage />} />
           <Route path="/provider" element={<CustomerProviderProfile />} />
+          <Route path="/HomePageBL" element={<HomePageBL />} />
         </Routes>
-        <Footer />
+         <Footer /> 
       </BrowserRouter>
     </div>
   );
