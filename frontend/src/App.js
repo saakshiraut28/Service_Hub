@@ -12,6 +12,8 @@ import NavbarDefault from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import CustomerProviderProfile from "./pages/CustomerProvider";
 import HomePageBL from "./pages/HomePageBL";
+import ProviderDashboard from "./pages/ProviderDashboard";
+import RatingPage from "./pages/RatingPage";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path="/HomePageBL" element={<HomePageBL />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/ProviderDashboard" element={<ProviderDashboard />} />
+          <Route path="/RatingPage" element={<RatingPage />} />
         </Routes>
          <Footer /> 
       </BrowserRouter>
