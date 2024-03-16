@@ -4,7 +4,7 @@ import React from "react";
 import Button from "../components/ui/Button";
 import { Link } from "react-router-dom";
 
-function Login() {
+function Signup() {
   return (
     <div className="container px-4 py-8 lg:px-24 font-poppin">
       <div className="flex w-full items-center justify-start my-8">
@@ -26,9 +26,14 @@ function Login() {
       <div className="container flex  justify-center items-center">
         <div className="bg-white border border-[#585858] shadow-lg py-4 px-2 md:px-6 md:py-8">
           <span className="font-bold text-xl text-[#012A45]">
-            Welcome to Chakde Chores 🙏.
+            Get your all chores done in just few clicks 🤯.
           </span>
           <form className="flex flex-col justify-center items-center py-8 w-full px-4 ">
+            <input
+              className="md:min-w-[300px] border border-b-[#1170B0] outline-none bg-[#E9E9E9] px-2 py-1 text-sm hover:border-[#1170B0] hover:bg-white my-2"
+              placeholder="Name"
+              type="text"
+            />
             <input
               className="md:min-w-[300px] border border-b-[#1170B0] outline-none bg-[#E9E9E9] px-2 py-1 text-sm hover:border-[#1170B0] hover:bg-white my-2"
               placeholder="Email"
@@ -39,11 +44,11 @@ function Login() {
               placeholder="Password"
               type="password"
             />
-            <Button title={"Login"} />
+            <Button title={"Signup"} />
             <span className="text-center">
-              Don’t have an account?{" "}
-              <Link to="/signup" className="hover:text-[#1170B0] underline">
-                Signup
+              Already have an account?{" "}
+              <Link to="/login" className="hover:text-[#1170B0] underline">
+                Login
               </Link>
             </span>
           </form>
@@ -53,4 +58,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
