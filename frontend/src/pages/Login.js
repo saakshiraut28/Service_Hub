@@ -1,10 +1,25 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import Button from "../components/ui/Button";
 import { Link } from "react-router-dom";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const user = { email, password };
+    const response = await fetch("api/user/login", {
+      method: "POST",
+      body: JSON.stringify(user),
+    });
+    const json = await response.json();
+    if (!response.ok) {
+      sessionStorage.setItem("user", { json });
+    }
+  };
+
   return (
     <div className="container px-4 py-8 lg:px-24 font-poppin">
       <div className="flex w-full items-center justify-start my-8">
@@ -28,16 +43,23 @@ function Login() {
           <span className="font-bold text-xl text-[#012A45]">
             Welcome to Chakde Chores 🙏.
           </span>
-          <form className="flex flex-col justify-center items-center py-8 w-full px-4 ">
+          <form
+            className="flex flex-col justify-center items-center py-8 w-full px-4 "
+            onSubmit={handleSubmit}
+          >
             <input
               className="md:min-w-[300px] border border-b-[#1170B0] outline-none bg-[#E9E9E9] px-2 py-1 text-sm hover:border-[#1170B0] hover:bg-white my-2"
               placeholder="Email"
               type="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
             <input
               className="md:min-w-[300px] border border-b-[#1170B0] outline-none bg-[#E9E9E9] px-2 py-1 text-sm hover:border-[#1170B0] hover:bg-white my-2"
               placeholder="Password"
               type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
             />
             <Button title={"Login"} />
             <span className="text-center">

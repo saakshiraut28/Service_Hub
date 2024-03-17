@@ -1,9 +1,23 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/ui/Card";
 
 function ServicePage() {
+  const [providers, setProvider] = useState();
+  useEffect(() => {
+    const fetchProviders = async () => {
+      const response = await fetch(
+        `http://localhost:4000/api/spuser/profiles/`
+      );
+      const json = await response.json();
+
+      if (response.ok) {
+        setProvider(json);
+      }
+    };
+    fetchProviders();
+  }, []);
   return (
     <>
       <div className="container px-4 lg:px-24 py-10 font-poppin">
@@ -24,25 +38,15 @@ function ServicePage() {
           </svg>
         </div>
         <p className="title font-bold text-3xl text-[#033556] py-4 text-center">
-          Say hi to our Electricians! 👨‍🔧
+          Say hi to our Sevice Providers! 👨‍🔧
         </p>
         <div className="py-3 w-full">
-          <Card
-            img="Hii"
-            name="Name Surname"
-            category="Category: Electrician"
-            des="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text... Read more"
-            className="py-3"
-          />
-        </div>
-        <div className="py-3 w-full">
-          <Card
-            img="Hii"
-            name="Name Surname"
-            category="Category: Electrician"
-            des="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text... Read more"
-            className="py-3"
-          />
+          {providers &&
+            providers.map((provider) => (
+              <div className="grid border border-2 m-2">
+                <Card key={provider._id} provider={provider} className="py-3" />
+              </div>
+            ))}
         </div>
       </div>
     </>

@@ -5,6 +5,7 @@ const {
   login,
   signup,
   profile,
+  getProfile,
 } = require("../controllers/serviceProviderControllers");
 
 const router = express.Router();
@@ -17,5 +18,8 @@ router.post("/signup", signup);
 
 // porfile route
 router.get("/profile/:id", profile);
+
+// porfile
+router.get("/profiles/", getProfile);
 
 module.exports = router;

@@ -30,7 +30,9 @@ function HomePageBL() {
         {/* Left Half */}
         <div className="lg:w-[49%] flex flex-col ml-4">
           <div className="about-para pl-2 lg:ml-4">
-            <p className="pt-6 pb-4 font-black text-4xl md:text-center lg:text-5xl lg:text-left">About Us</p>
+            <p className="pt-6 pb-4 font-black text-4xl md:text-center lg:text-5xl lg:text-left">
+              About Us
+            </p>
             <p className="mr-4 text-base font-medium text-justify lg:text-2xl">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -45,8 +47,10 @@ function HomePageBL() {
 
         {/* Right Half */}
         <div className="lg:w-1/2 flex justify-center items-center">
-          <div className="p-4 pt-8 flex flex-col space-y-24 md:flex md:flex-row md:space-y-0 md:p-0 md:space-x-8
-          lg:flex-col lg:space-y-20">
+          <div
+            className="p-4 pt-8 flex flex-col space-y-24 md:flex md:flex-row md:space-y-0 md:p-0 md:space-x-8
+          lg:flex-col lg:space-y-20"
+          >
             {/* Circle 1 */}
             <TeamCard
               fullName="Shrimayee Mishra"
@@ -74,7 +78,9 @@ function HomePageBL() {
 
       {/*******     Contact Section      **********/}
       <section className="contact font-poppin text-[#012A45] bg-[#D2EDFA]">
-      <p className="pt-6 pb-4 pl-7 font-black text-4xl md:pl-0 md:text-center lg:text-5xl lg:text-left lg:ml-10">Contact Us:</p>
+        <p className="pt-6 pb-4 pl-7 font-black text-4xl md:pl-0 md:text-center lg:text-5xl lg:text-left lg:ml-10">
+          Contact Us:
+        </p>
         <div className="flex flex-col items-center lg:flex-row">
           <ContactCard />
 

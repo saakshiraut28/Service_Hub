@@ -23,9 +23,8 @@ const login = async (req, res) => {
 };
 
 const signup = async (req, res) => {
-  const { name, email, password, contact, address, service, category } =
-    req.body;
-  if (!email || !password || !contact || !address || !service || !category) {
+  const { name, email, password, contact, address, bio, category } = req.body;
+  if (!email || !password || !contact || !address || !bio || !category) {
     res.status(400).json({ err: "Please enter all the fields." });
   }
   const userExist = await SpUser.findOne({ email });
@@ -38,7 +37,7 @@ const signup = async (req, res) => {
       password: hash,
       contact,
       address,
-      service,
+      bio,
       category,
     });
     res.status(200).json(user);
@@ -57,4 +56,10 @@ const profile = async (req, res) => {
   }
 };
 
-module.exports = { login, signup, profile };
+const getProfile = async (req, res) => {
+  const provider = await SpUser.find().sort({ createdAt: -1 });
+
+  res.status(200).json(provider);
+};
+
+module.exports = { login, signup, profile, getProfile };

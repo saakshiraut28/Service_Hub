@@ -26,7 +26,7 @@ const spuserSchema = new Schema(
       type: String,
       required: true,
     },
-    service: {
+    bio: {
       type: String,
       required: true,
     },

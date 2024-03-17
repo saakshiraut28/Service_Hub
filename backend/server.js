@@ -14,6 +14,7 @@ const app = express();
 app.use(express.json()); // Will help us to pass JSON object on request
 
 app.use("/", (req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
   next();
 });
 

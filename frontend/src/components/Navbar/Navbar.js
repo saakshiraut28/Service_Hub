@@ -26,7 +26,7 @@ function NavbarDefault() {
         Home
       </Link>
 
-      <Link to="/services" className="flex items-center">
+      <Link to="/servicepage" className="flex items-center">
         Services
       </Link>
 
@@ -53,7 +53,9 @@ function NavbarDefault() {
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-1">
           <Button variant="text" size="sm" className="hidden lg:inline-block">
-            <span>Log In</span>
+            <Link to="/login">
+              <span>Log In</span>
+            </Link>
           </Button>
         </div>
         <IconButton
