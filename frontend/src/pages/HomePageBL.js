@@ -8,7 +8,7 @@ import ContactCard from "../components/ui/ContactCard.js";
 function HomePageBL() {
   return (
     <>
-      {/*******     Hero Section      **********/}
+      {/*******     Entry Section      **********/}
       <section className="hero-section md:px-10 px-4 py-24 justify-center text-center bg-[#D2EDFA] font-poppin space-y-6 lg:space-y-14 lg:p-20">
         <p className="text-[#012A45] font-black md:text-4xl text-2xl leading-normal lg:text-5xl lg:space-y-3">
           <p className="text-pretty">Need help with your daily</p>
@@ -24,6 +24,46 @@ function HomePageBL() {
         </div>
       </section>
       <hr />
+
+      {/*******     Services Section      **********/}
+      <section className="services-section px-4 py-8 lg:px-24 lg:py-8 font-poppin space-y-6 ">
+        <p className="text-xl md:text-3xl text-[#012A45] font-bold py-3">
+          Search from the below categories:
+        </p>
+        {/* <SlideShow /> */}
+        <div className="services flex flex-col md:flex-row  justify-center md:justify-around items-center py-3">
+          <div
+            title="Electrician"
+            className="w-[65px] h-[65px] md:w-[100px] md:h-[100px] my-2 mx-2 flex justify-center items-center bg-[#D9D9D9] rounded-full shadow-lg hover:border hover:border-[#012A45]"
+          >
+            <img alt="Icons" width="40px" src={Electric} />
+          </div>
+          <div
+            title="Gardener"
+            className="w-[65px] h-[65px] md:w-[100px] md:h-[100px] my-2 mx-2 flex justify-center items-center bg-[#D9D9D9] rounded-full shadow-lg hover:border hover:border-[#012A45]"
+          >
+            <img alt="Icons" width="40px" src={Garden} />
+          </div>
+          <div
+            title="Pet Care"
+            className="w-[65px] h-[65px] md:w-[100px] md:h-[100px] my-2 mx-2 flex justify-center items-center bg-[#D9D9D9] rounded-full shadow-lg hover:border hover:border-[#012A45]"
+          >
+            <img alt="Icons" width="40px" src={Petcare} />
+          </div>
+          <div
+            title="Tutor"
+            className="w-[65px] h-[65px] md:w-[100px] md:h-[100px] my-2 mx-2 flex justify-center items-center bg-[#D9D9D9] rounded-full shadow-lg hover:border hover:border-[#012A45]"
+          >
+            <img alt="Icons" width="40px" src={Trainer} />
+          </div>
+          <div
+            title="Plumber"
+            className="w-[65px] h-[65px] md:w-[100px] md:h-[100px] my-2 mx-2 flex justify-center items-center bg-[#D9D9D9] rounded-full shadow-lg hover:border hover:border-[#012A45]"
+          >
+            <img alt="Icons" width="40px" src={Plumber} />
+          </div>
+        </div>
+      </section>
 
       {/*******     About Section      **********/}
       <section className="flex flex-col bg-[#D2EDFA] font-poppin text-[#012A45] w-[100%] lg:flex-row">
@@ -46,7 +86,7 @@ function HomePageBL() {
         </div>
 
         {/* Right Half */}
-        <div className="lg:w-1/2 flex justify-center items-center">
+        <div className="lg:w-1/2 pt-8 pb-8 flex justify-center items-center">
           <div
             className="p-4 pt-8 flex flex-col space-y-24 md:flex md:flex-row md:space-y-0 md:p-0 md:space-x-8
           lg:flex-col lg:space-y-20"
