@@ -15,7 +15,7 @@ function LandingPage() {
     <>
       {/*******     Hero Section      **********/}
       <section className="hero-section md:px-10 px-4 py-24 justify-center text-center bg-[#D2EDFA] font-poppin space-y-6">
-        <p className="text-[#012A45] font-black md:text-4xl text-2xl leading-normal ">
+        <p className="text-[#012A45] font-black md:text-4xl text-2xl lg:text-5xl  leading-normal ">
           <p>Get your work done</p>
           <p>In just few clicks ;)</p>
         </p>

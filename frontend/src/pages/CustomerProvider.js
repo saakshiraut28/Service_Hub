@@ -1,40 +1,68 @@
 /** @format */
 
-import React from "react";
-import ProfileCard from "../components/ui/ProfileCard";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 function CustomerProviderProfile() {
+  const { id } = useParams();
+  const [provider, setProvider] = useState(null);
+
+  useEffect(() => {
+    const fetchProvider = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:4000/api/spuser/profile/${id}`
+        );
+        if (response.ok) {
+          const json = await response.json();
+          setProvider(json);
+        } else {
+          throw new Error("Failed to fetch provider");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchProvider();
+  }, [id]); // Fetch provider data whenever the ID parameter changes
+
+  if (!provider) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <div className="container px-4 py-1 lg:px-24 lg:py-4">
         <div className="flex w-full items-center justify-start py-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-            />
-          </svg>
+          <Link to="/servicepage">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
+            </svg>
+          </Link>
         </div>
         <div className="w-full border border-1-[#A0A0A0] shadow-xl bg-[#fff] font-poppin px-4 lg:px-8 py-10 my-3">
-          <div className="flex flex-col md:flex-row items-center md:px-6 px-3 justify-center py-3">
+          <div className="flex flex-col md:flex-row items-center md:px-6 px-3 justify-center md:justify-start py-3">
             <div className="flex w-sm">Image</div>
             <div className="justify-around px-4 space-y-3">
-              <p className="text-[#012A45] font-bold text-xl">Name Surname |</p>
+              <p className="text-[#012A45] font-bold text-xl">
+                {provider.name} | {provider.title}
+              </p>
               <p className="w-fit text-white font-medium text-sm bg-[#1170B0] px-4 rounded-full py-1 ">
-                Category
+                {provider.category}
               </p>
               <p className="text-md py-4 text-justify">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text...
+                {provider.bio}
                 <span className="font-bold hover:underline">Read more</span>
               </p>
               <div className="flex text-bold justify-center items-center md:justify-start space-x-6">

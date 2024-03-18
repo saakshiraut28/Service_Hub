@@ -36,7 +36,7 @@ function Footer() {
         </div>
         <div className="">
           <p>Terms | Policy</p>
-          <p>Chakde Chore, 2024.</p>
+          <p>Chakde Chores, 2024.</p>
         </div>
       </div>
     </footer>

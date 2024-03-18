@@ -1,6 +1,6 @@
 /** @format */
 
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -19,14 +19,14 @@ function App() {
       <BrowserRouter>
         <NavbarDefault />
         <Routes>
-          <Route path="/" element={<HomePageBL />} exact />
+          <Route path="/" element={<HomePageBL />} />
           <Route path="/about" element={<About />} />
           <Route path="/customer" element={<LandingPage />} />
           <Route path="/servicepage" element={<ServicePage />} />
-          <Route path="/provider" element={<CustomerProviderProfile />} />
+          <Route path="/profile/:id" element={<CustomerProviderProfile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/ProviderDashboard" element={<ProviderDashboard />} />
+          <Route path="/providerdashboard" element={<ProviderDashboard />} />
           <Route path="/RatingPage" element={<RatingPage />} />
         </Routes>
         <Footer />

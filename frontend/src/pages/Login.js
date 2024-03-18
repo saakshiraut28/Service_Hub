@@ -3,20 +3,32 @@
 import React, { useState } from "react";
 import Button from "../components/ui/Button";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = { email, password };
-    const response = await fetch("api/user/login", {
-      method: "POST",
-      body: JSON.stringify(user),
-    });
-    const json = await response.json();
-    if (!response.ok) {
-      sessionStorage.setItem("user", { json });
+
+    try {
+      const response = await fetch("http://localhost:4000/api/user/login/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to login");
+      }
+      navigate("/");
+    } catch (error) {
+      setError("Invalid email or password");
+      console.error(error);
     }
   };
 
@@ -63,7 +75,7 @@ function Login() {
             />
             <Button title={"Login"} />
             <span className="text-center">
-              Don’t have an account?{" "}
+              Don’t have an account?
               <Link to="/signup" className="hover:text-[#1170B0] underline">
                 Signup
               </Link>

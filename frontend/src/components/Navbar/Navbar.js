@@ -30,7 +30,7 @@ function NavbarDefault() {
         Services
       </Link>
 
-      <Link to="/profile" className="flex items-center">
+      <Link to="/providerdashboard" className="flex items-center">
         Profile
       </Link>
 
