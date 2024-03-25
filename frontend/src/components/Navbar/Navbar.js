@@ -12,7 +12,7 @@ import {
 
 function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
-
+  const isLoggedIn = !!sessionStorage.getItem("username");
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -52,11 +52,19 @@ function NavbarDefault() {
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-1">
-          <Button variant="text" size="sm" className="hidden lg:inline-block">
-            <Link to="/login">
-              <span>Log In</span>
-            </Link>
-          </Button>
+          {isLoggedIn ? (
+            <Button variant="text" size="sm" className="hidden lg:inline-block">
+              <Link to="/login">
+                <span>Log Out</span>
+              </Link>
+            </Button>
+          ) : (
+            <Button variant="text" size="sm" className="hidden lg:inline-block">
+              <Link to="/login">
+                <span>Log In</span>
+              </Link>
+            </Button>
+          )}
         </div>
         <IconButton
           variant="text"
@@ -100,9 +108,27 @@ function NavbarDefault() {
         <div className="container mx-auto">
           {navList}
           <div className="flex items-center gap-x-1">
-            <Button fullWidth variant="text" size="sm" className="">
-              <span>Log In</span>
-            </Button>
+            {isLoggedIn ? (
+              <Button
+                variant="text"
+                size="sm"
+                className="hidden lg:inline-block"
+              >
+                <Link to="/login">
+                  <span>Log Out</span>
+                </Link>
+              </Button>
+            ) : (
+              <Button
+                variant="text"
+                size="sm"
+                className="hidden lg:inline-block"
+              >
+                <Link to="/login">
+                  <span>Log In</span>
+                </Link>
+              </Button>
+            )}
             <Button fullWidth variant="text" size="sm" className="">
               <span>Sign in</span>
             </Button>

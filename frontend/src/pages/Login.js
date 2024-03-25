@@ -14,7 +14,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:4000/api/user/login/", {
+      const response = await fetch("/api/user/login/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,6 +25,12 @@ function Login() {
       if (!response.ok) {
         throw new Error("Failed to login");
       }
+
+      const userData = await response.json();
+      console.log("User data:", userData);
+      const { name } = userData;
+      sessionStorage.setItem("username", name);
+      console.log("Logged in as:", name);
       navigate("/");
     } catch (error) {
       setError("Invalid email or password");

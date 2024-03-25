@@ -2,6 +2,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const cors = require("cors");
 const mongo = require("mongoose");
 const service = require("./routes/service");
 const userRoutes = require("./routes/user");
@@ -9,6 +10,17 @@ const serviceProviderRoutes = require("./routes/serviceprovider");
 
 // Initializing express App
 const app = express();
+
+// Allow requests from all origins
+app.use(cors());
+
+// Add Content-Type to the list of allowed headers
+app.options(
+  "*",
+  cors({
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 // Create middleware kinda thing
 app.use(express.json()); // Will help us to pass JSON object on request
