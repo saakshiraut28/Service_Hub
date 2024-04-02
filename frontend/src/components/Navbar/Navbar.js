@@ -12,7 +12,7 @@ import {
 
 function NavbarDefault() {
   const handleLogout = () => {
-    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("customer_id");
     window.location.reload();
   };
   const [openNav, setOpenNav] = React.useState(false);
@@ -74,7 +74,7 @@ function NavbarDefault() {
             </Button>
           ) : (
             <Button variant="text" size="sm" className="hidden lg:inline-block">
-              <Link to="/login">
+              <Link to="/sp/login">
                 <span>Log In</span>
               </Link>
             </Button>

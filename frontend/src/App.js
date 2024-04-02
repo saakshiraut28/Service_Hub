@@ -13,6 +13,8 @@ import HomePageBL from "./pages/HomePageBL";
 import ProviderDashboard from "./pages/ProviderDashboard";
 import RatingPage from "./pages/RatingPage";
 import ProfilePage from "./pages/Profile_Page";
+import SpLogin from "./pages/Provider/Login";
+import SpSignup from "./pages/Provider/Signup";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/servicepage" element={<ServicePage />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/sp/login" element={<SpLogin />} />
+          <Route path="/sp/signup" element={<SpSignup />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/providerdashboard" element={<ProviderDashboard />} />
           <Route path="/RatingPage" element={<RatingPage />} />
