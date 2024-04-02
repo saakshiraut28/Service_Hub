@@ -11,8 +11,12 @@ import {
 } from "@material-tailwind/react";
 
 function NavbarDefault() {
+  const handleLogout = () => {
+    sessionStorage.removeItem("username");
+    window.location.reload();
+  };
   const [openNav, setOpenNav] = React.useState(false);
-  const isLoggedIn = !!sessionStorage.getItem("username");
+  const isLoggedIn = !!sessionStorage.getItem("customer_id");
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -22,21 +26,26 @@ function NavbarDefault() {
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Link to="/" className="flex items-center">
-        Home
-      </Link>
-
-      <Link to="/servicepage" className="flex items-center">
-        Services
-      </Link>
-
-      <Link to="/providerdashboard" className="flex items-center">
-        Profile
-      </Link>
-
-      <Link to="/history" className="flex items-center">
-        History
-      </Link>
+      {isLoggedIn ? (
+        <>
+          <Link to="/customer" className="flex items-center">
+            Home
+          </Link>
+          <Link to="/servicepage" className="flex items-center">
+            Services
+          </Link>
+          <Link to="/profile/:id" className="flex items-center">
+            Profile
+          </Link>
+          <Link to="/history" className="flex items-center">
+            History
+          </Link>
+        </>
+      ) : (
+        <Link to="/" className="flex items-center">
+          Check out available services.
+        </Link>
+      )}
     </ul>
   );
 
@@ -53,8 +62,13 @@ function NavbarDefault() {
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-1">
           {isLoggedIn ? (
-            <Button variant="text" size="sm" className="hidden lg:inline-block">
-              <Link to="/login">
+            <Button
+              variant="text"
+              size="sm"
+              className="hidden lg:inline-block"
+              onClick={handleLogout}
+            >
+              <Link to="/">
                 <span>Log Out</span>
               </Link>
             </Button>

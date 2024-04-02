@@ -12,6 +12,7 @@ import CustomerProviderProfile from "./pages/CustomerProvider";
 import HomePageBL from "./pages/HomePageBL";
 import ProviderDashboard from "./pages/ProviderDashboard";
 import RatingPage from "./pages/RatingPage";
+import ProfilePage from "./pages/Profile_Page";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/customer" element={<LandingPage />} />
           <Route path="/servicepage" element={<ServicePage />} />
-          <Route path="/profile/:id" element={<CustomerProviderProfile />} />
+          <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/providerdashboard" element={<ProviderDashboard />} />

@@ -28,10 +28,11 @@ function Login() {
 
       const userData = await response.json();
       console.log("User data:", userData);
-      const { name } = userData;
-      sessionStorage.setItem("username", name);
-      console.log("Logged in as:", name);
-      navigate("/");
+      const { _id } = userData;
+      sessionStorage.setItem("customer_id", _id);
+      console.log("Logged in as:", _id);
+      navigate("/customer");
+      window.location.reload();
     } catch (error) {
       setError("Invalid email or password");
       console.error(error);

@@ -24,7 +24,7 @@ const login = async (req, res) => {
 
 const signup = async (req, res) => {
   const { name, email, password } = req.body;
-  if (!email || !password) {
+  if (!name || !email || !password) {
     res.status(400).json({ err: "Please enter all the fields." });
   }
   const userExist = await User.findOne({ email });
@@ -32,7 +32,7 @@ const signup = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
     const user = User.create({ name, email, password: hash });
-    res.status(200).json(user);
+    res.status(200).json({ user });
   } else {
     res.status(400).json({ err: "User already exist" });
   }
