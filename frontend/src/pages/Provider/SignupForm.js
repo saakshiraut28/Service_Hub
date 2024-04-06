@@ -37,8 +37,6 @@ function SpSignup() {
       if (!response.ok) {
         throw new Error("Failed to login");
       }
-      sessionStorage.setItem("username", name);
-      console.log("Signed up as:", name);
       navigate("/auth/Provider");
       window.location.reload();
     } catch (error) {

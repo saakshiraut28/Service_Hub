@@ -8,6 +8,8 @@ function SignupForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [contact, setContact] = useState("");
+  const [address, setAddress] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
@@ -18,7 +20,7 @@ function SignupForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, email, password, contact, address }),
       });
 
       if (!response.ok) {
@@ -57,6 +59,20 @@ function SignupForm() {
         type="password"
         onChange={(e) => setPassword(e.target.value)}
         value={password}
+      />
+      <input
+        className="md:min-w-[300px] border border-b-[#1170B0] outline-none bg-[#E9E9E9] px-2 py-1 text-sm hover:border-[#1170B0] hover:bg-white my-2"
+        placeholder="Mobile No."
+        type="text"
+        onChange={(e) => setContact(e.target.value)}
+        value={contact}
+      />
+      <input
+        className="md:min-w-[300px] border border-b-[#1170B0] outline-none bg-[#E9E9E9] px-2 py-1 text-sm hover:border-[#1170B0] hover:bg-white my-2"
+        placeholder="Address"
+        type="text"
+        onChange={(e) => setAddress(e.target.value)}
+        value={address}
       />
       <Button title={"Signup"} />
     </form>

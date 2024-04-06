@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 
 const getServices = async (req, res) => {
   const services = await Service.find().sort({ createdAt: -1 });
-
   res.status(200).json(services);
 };
 

@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Navbar,
   MobileNav,
@@ -11,13 +11,15 @@ import {
 } from "@material-tailwind/react";
 
 function NavbarDefault() {
+  const navigate = useNavigate();
   const handleLogout = () => {
-    sessionStorage.removeItem("customer_id");
-    window.location.reload();
+    sessionStorage.removeItem("user_id");
+    sessionStorage.removeItem("provider_id");
+    navigate("/");
   };
   const [openNav, setOpenNav] = React.useState(false);
   const isLoggedIn =
-    !!sessionStorage.getItem("customer_id") ||
+    !!sessionStorage.getItem("user_id") ||
     !!sessionStorage.getItem("provider_id");
   React.useEffect(() => {
     window.addEventListener(
@@ -33,18 +35,18 @@ function NavbarDefault() {
           <Link to="/customer" className="flex items-center">
             Home
           </Link>
-          <Link to="/servicepage" className="flex items-center">
-            Services
+          <Link to="/services" className="flex items-center">
+            Explore
           </Link>
-          <Link to="/profile/:id" className="flex items-center">
-            Profile
-          </Link>
-          <Link to="/history" className="flex items-center">
+          <Link to="/" className="flex items-center">
             History
+          </Link>
+          <Link to="/user/profile/:id" className="flex items-center">
+            Profile
           </Link>
         </>
       ) : (
-        <Link to="/" className="flex items-center">
+        <Link to="/services" className="flex items-center">
           Check out available services.
         </Link>
       )}
@@ -75,11 +77,26 @@ function NavbarDefault() {
               </Link>
             </Button>
           ) : (
-            <Button variant="text" size="sm" className="hidden lg:inline-block">
-              <Link to="/sp/login">
-                <span>Log In</span>
-              </Link>
-            </Button>
+            <>
+              <Button
+                variant="text"
+                size="sm"
+                className="hidden lg:inline-block"
+              >
+                <Link to="/auth/user">
+                  <span>Log In</span>
+                </Link>
+              </Button>
+              <Button
+                variant="text"
+                size="sm"
+                className="hidden lg:inline-block"
+              >
+                <Link to="/auth/provider">
+                  <span>Join In</span>
+                </Link>
+              </Button>
+            </>
           )}
         </div>
         <IconButton

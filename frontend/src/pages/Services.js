@@ -1,20 +1,18 @@
 /** @format */
 
 import React, { useEffect, useState } from "react";
-import Card from "../components/ui/Card";
+import ServiceCard from "../components/ui/ServiceCard";
 import { Link } from "react-router-dom";
 
-function ServicePage() {
-  const [providers, setProvider] = useState();
+function Services() {
+  const [services, setService] = useState();
   useEffect(() => {
     const fetchProviders = async () => {
-      const response = await fetch(
-        `http://localhost:4000/api/spuser/profiles/`
-      );
+      const response = await fetch(`http://localhost:4000/api/service/`);
       const json = await response.json();
 
       if (response.ok) {
-        setProvider(json);
+        setService(json);
       }
     };
     fetchProviders();
@@ -41,16 +39,16 @@ function ServicePage() {
           </Link>
         </div>
         <p className="title font-bold text-3xl text-[#033556] py-4 text-center">
-          Say hi to our Service Providers! 👨‍🔧
+          Get the Latest Services! 👨‍🔧
         </p>
         <div className="py-3 w-full">
-          {providers &&
-            providers.map((provider) => (
-              <div className="grid border border-2 m-2">
-                <Link to={`/profile/${provider._id}`}>
-                  <Card
-                    key={provider._id}
-                    provider={provider}
+          {services &&
+            services.map((service) => (
+              <div>
+                <Link to={`/profile/${service._id}`}>
+                  <ServiceCard
+                    key={service._id}
+                    service={service}
                     className="my-6"
                   />
                 </Link>
@@ -62,4 +60,4 @@ function ServicePage() {
   );
 }
 
-export default ServicePage;
+export default Services;
