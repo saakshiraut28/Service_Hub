@@ -1,20 +1,13 @@
 /** @format */
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import About from "./pages/About";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import LandingPage from "./pages/CustomerLP";
-import ServicePage from "./pages/ServicePage";
 import NavbarDefault from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
-import CustomerProviderProfile from "./pages/CustomerProvider";
-import HomePageBL from "./pages/HomePageBL";
-import ProviderDashboard from "./pages/ProviderDashboard";
-import RatingPage from "./pages/RatingPage";
-import ProfilePage from "./pages/Profile_Page";
-import SpLogin from "./pages/Provider/Login";
-import SpSignup from "./pages/Provider/Signup";
+import LandingPage from "./pages/LandingPage";
+import HomePage from "./pages/HomePage";
+
+import UserAuth from "./pages/Customer/Auth";
+import ProviderAuth from "./pages/Provider/Auth";
 
 function App() {
   return (
@@ -22,17 +15,14 @@ function App() {
       <BrowserRouter>
         <NavbarDefault />
         <Routes>
-          <Route path="/" element={<HomePageBL />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/customer" element={<LandingPage />} />
-          <Route path="/servicepage" element={<ServicePage />} />
-          <Route path="/profile/:id" element={<ProfilePage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/sp/login" element={<SpLogin />} />
-          <Route path="/sp/signup" element={<SpSignup />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/providerdashboard" element={<ProviderDashboard />} />
-          <Route path="/RatingPage" element={<RatingPage />} />
+          {/* Default landing page */}
+          <Route path="/" element={<LandingPage />} />
+          {/* Default home page*/}
+          <Route path="/home" element={<HomePage />} />
+          {/* User i.e. Customer Authentication */}
+          <Route path="/auth/user" element={<UserAuth />} />
+          {/* Provider Authentication */}
+          <Route path="/auth/provider" element={<ProviderAuth />} />
         </Routes>
         <Footer />
       </BrowserRouter>

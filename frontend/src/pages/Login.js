@@ -6,11 +6,12 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const handleSubmit = async (e) => {
+  const handleUserLogin = async (e) => {
     e.preventDefault();
 
     try {
@@ -29,7 +30,35 @@ function Login() {
       const userData = await response.json();
       console.log("User data:", userData);
       const { _id } = userData;
-      sessionStorage.setItem("customer_id", _id);
+      sessionStorage.setItem("user", _id);
+      console.log("Logged in as:", _id);
+      navigate("/customer");
+      window.location.reload();
+    } catch (error) {
+      setError("Invalid email or password");
+      console.error(error);
+    }
+  };
+  const handleProviderLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("/api/spuser/login/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to login");
+      }
+
+      const userData = await response.json();
+      console.log("User data:", userData);
+      const { _id } = userData;
+      sessionStorage.setItem("provider_id", _id);
       console.log("Logged in as:", _id);
       navigate("/customer");
       window.location.reload();
@@ -62,10 +91,7 @@ function Login() {
           <span className="font-bold text-xl text-[#012A45]">
             Welcome to Chakde Chores 🙏.
           </span>
-          <form
-            className="flex flex-col justify-center items-center py-8 w-full px-4 "
-            onSubmit={handleSubmit}
-          >
+          <form className="flex flex-col justify-center items-center py-8 w-full px-4 ">
             <input
               className="md:min-w-[300px] border border-b-[#1170B0] outline-none bg-[#E9E9E9] px-2 py-1 text-sm hover:border-[#1170B0] hover:bg-white my-2"
               placeholder="Email"
@@ -80,7 +106,8 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
-            <Button title={"Login"} />
+            <Button title={"User Login"} onSubmit={handleUserLogin} />
+            <Button title={"Provider Login"} onSubmit={handleProviderLogin} />
             <span className="text-center">
               Don’t have an account?
               <Link to="/signup" className="hover:text-[#1170B0] underline">

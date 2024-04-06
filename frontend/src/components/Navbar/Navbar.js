@@ -16,7 +16,9 @@ function NavbarDefault() {
     window.location.reload();
   };
   const [openNav, setOpenNav] = React.useState(false);
-  const isLoggedIn = !!sessionStorage.getItem("customer_id");
+  const isLoggedIn =
+    !!sessionStorage.getItem("customer_id") ||
+    !!sessionStorage.getItem("provider_id");
   React.useEffect(() => {
     window.addEventListener(
       "resize",

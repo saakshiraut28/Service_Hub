@@ -12,7 +12,7 @@ import Trainer from "../asset/Training.svg";
 import ProfileCard from "../components/ui/ProfileCard.js";
 import { Link } from "react-router-dom";
 
-function HomePageBL() {
+function LandingPage() {
   return (
     <>
       {/*******     Entry Section      **********/}
@@ -27,10 +27,10 @@ function HomePageBL() {
 
         <div className="flex flex-col items-center space-y-6 xl:flex md:flex-row md:space-y-0 md:space-x-12 md:justify-center">
           <Link to="/login">
-            <ButtonLight title="Login" />
+            <ButtonLight title="Join Community" />
           </Link>
           <Link to="/signup">
-            <ButtonLight title="Sign Up" />
+            <ButtonLight title="Find Provider" />
           </Link>
         </div>
       </section>
@@ -237,4 +237,4 @@ function HomePageBL() {
   );
 }
 
-export default HomePageBL;
+export default LandingPage;
