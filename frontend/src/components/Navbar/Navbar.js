@@ -21,6 +21,8 @@ function NavbarDefault() {
   const isLoggedIn =
     !!sessionStorage.getItem("user_id") ||
     !!sessionStorage.getItem("provider_id");
+  const isUserLoggedIn = !!sessionStorage.getItem("user_id");
+  const isProviderLoggedIn = !!sessionStorage.getItem("provider_id");
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -32,18 +34,41 @@ function NavbarDefault() {
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       {isLoggedIn ? (
         <>
-          <Link to="/customer" className="flex items-center">
-            Home
-          </Link>
-          <Link to="/services" className="flex items-center">
-            Explore
-          </Link>
-          <Link to="/" className="flex items-center">
-            History
-          </Link>
-          <Link to="/user/profile/:id" className="flex items-center">
-            Profile
-          </Link>
+          {isUserLoggedIn ? (
+            <>
+              <Link to="/home" className="flex items-center">
+                Home
+              </Link>
+              <Link to="/services" className="flex items-center">
+                Explore
+              </Link>
+              <Link to="/" className="flex items-center">
+                History
+              </Link>
+
+              <Link to="/user/profile/:id" className="flex items-center">
+                Profile
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/home" className="flex items-center">
+                Home
+              </Link>
+              <Link to="/services" className="flex items-center">
+                Explore
+              </Link>
+              <Link to="/provider/services/:id" className="flex items-center">
+                My Services
+              </Link>
+              <Link to="/" className="flex items-center">
+                Customers
+              </Link>
+              <Link to="/provider/profile/:id" className="flex items-center">
+                Profile
+              </Link>
+            </>
+          )}
         </>
       ) : (
         <Link to="/services" className="flex items-center">

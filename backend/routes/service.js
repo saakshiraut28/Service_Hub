@@ -4,6 +4,7 @@ const express = require("express");
 const {
   getServices,
   getService,
+  getProviderService,
   addService,
   deleteService,
   updateService,
@@ -18,6 +19,9 @@ router.get("/", getServices);
 
 //GET a single service
 router.get("/:id", getService);
+
+// GET provider's service
+router.get("/sp/:id", getProviderService);
 
 // POST a new service
 router.post("/", addService);

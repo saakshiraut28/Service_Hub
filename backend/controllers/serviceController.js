@@ -21,8 +21,21 @@ const getService = async (req, res) => {
   }
 };
 
+const getProviderService = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    res.status(400).json({ err: "Service not found : Incorrect Id" });
+  }
+  try {
+    const services = await Service.find({ provider_id: id });
+    res.status(200).json(services);
+  } catch (error) {
+    res.status(500).json({ err: "Internal server error" });
+  }
+};
+
 const addService = async (req, res) => {
-  const { title, category, description, feedback } = req.body;
+  const { title, category, description, feedback, provider_id } = req.body;
   let emptyFields = [];
 
   if (!title) {
@@ -48,6 +61,7 @@ const addService = async (req, res) => {
       category,
       description,
       feedback,
+      provider_id,
     });
     res.status(200).json({ service });
   } catch {
@@ -58,15 +72,21 @@ const addService = async (req, res) => {
 const deleteService = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    res.status(400).json({ err: "Service not found : Incorrect Id" });
+    return res.status(400).json({ err: "Service not found : Incorrect Id" });
   }
-  const service = await Service.findById(id);
 
-  if (!service) {
-    res.status(400).json({ err: "Service not found" });
+  try {
+    const service = await Service.findById(id);
+    if (!service) {
+      return res.status(400).json({ err: "Service not found" });
+    }
+
+    const deletedService = await Service.findByIdAndDelete(id);
+    res.status(200).json(deletedService);
+  } catch (error) {
+    console.error("Error deleting service:", error);
+    res.status(500).json({ err: "Internal server error" });
   }
-  const delservice = await Service.findByIdAndDelete(id);
-  res.status(200).json(delservice);
 };
 const updateService = async (req, res) => {
   const { id } = req.params;
@@ -84,6 +104,7 @@ const updateService = async (req, res) => {
 module.exports = {
   getServices,
   getService,
+  getProviderService,
   addService,
   deleteService,
   updateService,

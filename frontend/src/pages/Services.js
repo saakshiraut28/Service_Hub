@@ -3,11 +3,12 @@
 import React, { useEffect, useState } from "react";
 import ServiceCard from "../components/ui/ServiceCard";
 import { Link } from "react-router-dom";
+import Button from "../components/ui/Button";
 
 function Services() {
   const [services, setService] = useState();
   useEffect(() => {
-    const fetchProviders = async () => {
+    const fetchServices = async () => {
       const response = await fetch(`http://localhost:4000/api/service/`);
       const json = await response.json();
 
@@ -15,7 +16,7 @@ function Services() {
         setService(json);
       }
     };
-    fetchProviders();
+    fetchServices();
   }, []);
   return (
     <>
@@ -44,7 +45,7 @@ function Services() {
         <div className="py-3 w-full">
           {services &&
             services.map((service) => (
-              <div>
+              <div className="pl-4 w-5/6 border rounded-xl mx-auto mb-8 border-1-[#A0A0A0] shadow-lg bg-[#e9e9e9] font-poppin hover:bg-[#fff] hover:shadow-md">
                 <Link to={`/profile/${service._id}`}>
                   <ServiceCard
                     key={service._id}
@@ -52,6 +53,7 @@ function Services() {
                     className="my-6"
                   />
                 </Link>
+                <Button title={"Book Now"} />
               </div>
             ))}
         </div>

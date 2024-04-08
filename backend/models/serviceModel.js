@@ -22,6 +22,10 @@ const serviceSchema = new Schema(
       type: String,
       required: true,
     },
+    provider_id: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

@@ -11,6 +11,9 @@ import UserAuth from "./pages/Customer/Auth";
 import ProviderAuth from "./pages/Provider/Auth";
 
 import ProfileComponent from "./pages/Customer/Profile";
+import ProviderProfileComponent from "./pages/Provider/Profile";
+
+import ProviderServices from "./pages/Provider/ProviderServices";
 
 function App() {
   return (
@@ -32,6 +35,13 @@ function App() {
           {/* PROVIDERS ROUTE */}
           {/* Provider Authentication */}
           <Route path="/auth/provider" element={<ProviderAuth />} />
+          {/* Provider Services */}
+          <Route path="/provider/services/:id" element={<ProviderServices />} />
+          {/* Provider Profile */}
+          <Route
+            path="/provider/profile/:id"
+            element={<ProviderProfileComponent />}
+          />
 
           {/* SERVICES ROUTE */}
           {/* Services : List of all services */}
