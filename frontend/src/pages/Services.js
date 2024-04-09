@@ -7,6 +7,7 @@ import Button from "../components/ui/Button";
 
 function Services() {
   const [services, setService] = useState();
+  const user_id = sessionStorage.getItem("user_id");
   useEffect(() => {
     const fetchServices = async () => {
       const response = await fetch(`http://localhost:4000/api/service/`);
@@ -18,6 +19,24 @@ function Services() {
     };
     fetchServices();
   }, []);
+  const handleBook = async (user_id, service_id, provider_id) => {
+    try {
+      const response = await fetch(`/api/book/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user_id, service_id, provider_id }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to book service");
+      }
+    } catch (error) {
+      console.error("Error booking service:", error);
+      // Handle error
+    }
+  };
   return (
     <>
       <div className="container px-4 lg:px-24 py-10 font-poppin">
@@ -53,7 +72,14 @@ function Services() {
                     className="my-6"
                   />
                 </Link>
-                <Button title={"Book Now"} />
+                <button
+                  className="w-[200px] py-1 px-2 text-md font-semibold bg-[#012A45] text-white hover:bg-[#34556C] rounded-full my-4"
+                  onClick={() =>
+                    handleBook(user_id, service._id, service.provider_id)
+                  }
+                >
+                  Book Now
+                </button>
               </div>
             ))}
         </div>

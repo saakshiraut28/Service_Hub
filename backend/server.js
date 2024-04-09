@@ -7,6 +7,7 @@ const mongo = require("mongoose");
 const service = require("./routes/service");
 const userRoutes = require("./routes/user");
 const serviceProviderRoutes = require("./routes/serviceprovider");
+const serviceBooked = require("./routes/servicebook");
 
 // Initializing express App
 const app = express();
@@ -34,6 +35,7 @@ app.use("/", (req, res, next) => {
 app.use("/api/service", service);
 app.use("/api/user", userRoutes);
 app.use("/api/spuser", serviceProviderRoutes);
+app.use("/api/book", serviceBooked);
 
 // Connect DB
 mongo

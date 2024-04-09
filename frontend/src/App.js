@@ -13,6 +13,8 @@ import ProviderAuth from "./pages/Provider/Auth";
 import ProfileComponent from "./pages/Customer/Profile";
 import ProviderProfileComponent from "./pages/Provider/Profile";
 
+import UserHistory from "./pages/Customer/History";
+
 import ProviderServices from "./pages/Provider/ProviderServices";
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
           <Route path="/auth/user" element={<UserAuth />} />
           {/* User Profile */}
           <Route path="/user/profile/:id" element={<ProfileComponent />} />
+          {/* User History */}
+          <Route path="/user/history/:user_id" element={<UserHistory />} />
 
           {/* PROVIDERS ROUTE */}
           {/* Provider Authentication */}

@@ -42,7 +42,7 @@ function NavbarDefault() {
               <Link to="/services" className="flex items-center">
                 Explore
               </Link>
-              <Link to="/" className="flex items-center">
+              <Link to="/user/history/:user_id" className="flex items-center">
                 History
               </Link>
 
