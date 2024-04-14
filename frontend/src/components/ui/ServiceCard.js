@@ -8,7 +8,7 @@ const ServiceCard = ({ service }) => {
 
   return (
     <>
-      <div className="pt-4 firstrow flex flex-row justify-between">
+      <div className="pt-4 px-4 firstrow flex flex-row justify-between">
         <div>
           <p className="text-xl font-bold md:text-xl lg:text-3xl">
             {service.title}
@@ -18,10 +18,10 @@ const ServiceCard = ({ service }) => {
           </p>
         </div>
       </div>
-      <p className="pt-2 pr-6 pb-2 text-justify md:text-sm lg:text-xl">
+      <p className="pt-2 px-4 pr-6 pb-2 text-justify md:text-sm lg:text-xl">
         {service.description}
       </p>
-      <p className="pt-2 pr-6 pb-2 text-sm text-justify md:text-base lg:text-lg">
+      <p className="pt-2 px-4 pr-6 pb-2 text-sm text-justify md:text-base lg:text-lg">
         {service.feedback}
       </p>
     </>
