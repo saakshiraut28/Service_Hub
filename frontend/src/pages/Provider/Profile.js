@@ -2,6 +2,7 @@
 /** @format */
 
 import { useState, useEffect } from "react";
+import ButtonLight from "../../components/ui/ButtonLight.js";
 
 export default function ProviderProfileComponent() {
   const [provider, setProvider] = useState(""); // Initialize user state to null
@@ -34,7 +35,7 @@ export default function ProviderProfileComponent() {
       </div>
       <div className="flex flex-col bg-white px-4 lg:px-24 py-4 ">
         <p className="font-semibold text-xl">Check your profile details:</p>
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col mt-12 mb-12 md:flex-row">
           <div className="image md:w-1/3 place-self-center lg:w-1/5">
             <div className="photo my-4 w-32 h-32 bg-[#e9e9e9] rounded-full md:h-40 md:w-40 md:mx-8 lg:h-48 lg:w-48 lg:ml-12 xl:ml-20 xl:w-52 xl:h-52"></div>
           </div>
@@ -48,10 +49,10 @@ export default function ProviderProfileComponent() {
               Bio: {provider.bio}
               <br />
               Category: {provider.category}
-            </div>
-            <div className="bio m-8 mb-5 mt-1 text-justify md:ml-0 text-lg">
+              <br />
               Address: {provider.address}
             </div>
+            <ButtonLight title="Edit Details" />
           </div>
         </div>
       </div>

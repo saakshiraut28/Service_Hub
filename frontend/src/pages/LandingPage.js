@@ -107,11 +107,13 @@ function LandingPage() {
             <TeamCard
               fullName="Shrimayee Mishra"
               role="Computer Engineering Student"
+              imgLink="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"
             />
             {/* Circle 3 */}
             <TeamCard
               fullName="Arfia Shaikh"
               role="Computer Engineering Student"
+              imgLink="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"
             />
           </div>
           <div
@@ -122,51 +124,55 @@ function LandingPage() {
             <TeamCard
               fullName="Saakshi Raut"
               role="Computer Engineering Student"
+              imgLink="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"
             />
           </div>
         </div>
       </section>
       <hr className="m-auto w-[200px] " />
 
-      {/*******    Happy Customer Section      **********/}
-      <section className="customer-section px-4 py-12 lg:px-24 lg:py-24 font-poppin space-y-6 justify-center items-center">
-        <p className="text-xl md:text-3xl text-[#012A45] font-bold text-center">
-          Happy Customers!
-        </p>
-        <p className="text-lg text-[#012A45] font-medium text-center">
-          Provide your valuable feedback on{" "}
-          <span className="text-[#1170B0] underline ">Play Store</span>.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 space-y-4 md:space-y-0">
-          <div>
-            <ProfileCard
-              name={"Saakshi Raut"}
-              category={"Law Student"}
-              description={
-                "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
-              }
-            />
-          </div>
-          <div>
-            <ProfileCard
-              name={"Arfia Shaikh"}
-              category={"Computer Architect"}
-              description={
-                "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
-              }
-            />
-          </div>
-          <div>
-            <ProfileCard
-              name={"Shrimayee Mishra"}
-              category={"Film Producer"}
-              description={
-                "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
-              }
-            />
-          </div>
-        </div>
-      </section>
+            {/*******    Happy Customer Section      **********/}
+            <section className="customer-section px-4 py-12 lg:px-24 lg:py-24 font-poppin space-y-6 justify-center items-center">
+              <p className="text-xl md:text-3xl text-[#012A45] font-bold text-center">
+                Happy Customers!
+              </p>
+              <p className="text-lg text-[#012A45] font-medium text-center">
+                Provide your valuable feedback on{" "}
+                <span className="text-[#1170B0] underline ">Play Store</span>.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 space-y-4 md:space-y-0">
+                <div>
+                  <ProfileCard
+                  img={"https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"}
+                    name={"Saakshi Raut"}
+                    category={"Law Student"}
+                    description={
+                      "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
+                    }
+                  />
+                </div>
+                <div>
+                  <ProfileCard
+                  img={"https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"}
+                    name={"Arfia Shaikh"}
+                    category={"Computer Architect"}
+                    description={
+                      "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
+                    }
+                  />
+                </div>
+                <div>
+                  <ProfileCard
+                  img={"https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"}
+                    name={"Shrimayee Mishra"}
+                    category={"Film Producer"}
+                    description={
+                      "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
+                    }
+                  />
+                </div>
+              </div>
+            </section>
 
       {/*******     Contact Section      **********/}
       <section className="contact font-poppin text-[#012A45] bg-[#D2EDFA] px-4 py-8 lg:px-24 lg:py-8">

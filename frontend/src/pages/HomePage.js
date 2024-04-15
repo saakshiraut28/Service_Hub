@@ -14,10 +14,10 @@ function LandingPage() {
   return (
     <>
       {/*******     Hero Section      **********/}
-      <section className="hero-section md:px-10 px-4 py-24 justify-center text-center bg-[#D2EDFA] font-poppin space-y-6">
-        <p className="text-[#012A45] font-black md:text-4xl text-2xl lg:text-5xl  leading-normal ">
-          <p>Get your work done</p>
-          <p>In just few clicks ;)</p>
+      <section className="hero-section md:px-10 px-4 py-24 justify-center text-center bg-[#D2EDFA] font-poppin space-y-6 lg:space-y-14 lg:p-20">
+        <p className="text-[#012A45] font-black md:text-4xl text-2xl leading-normal lg:text-5xl lg:space-y-3">
+          <p className="text-pretty">Get your work done</p>
+          <p className="text-pretty m-0">In just few clicks ;)</p>
         </p>
         <p className="text-lg text-[#012A45] font-medium">
           Sending our helpers to your doorsteps.
@@ -66,10 +66,10 @@ function LandingPage() {
           </div>
         </div>
       </section>
-      <hr />
+      
       {/*******     Trending Providers Section      **********/}
-      <section className="trending-section px-4 py-12 lg:px-24 lg:py-24 font-poppin space-y-6 ">
-        <div className="flex flex-col md:flex-row justify-between items-center">
+      <section className="trending-section px-4 py-12 lg:px-12 lg:py-12 font-poppin space-y-6">
+        <div className="flex flex-col md:flex-row justify-center items-center">
           <div className="flex flex-col md:w-1/2 text-center md:text-left">
             <p className="text-xl md:text-3xl text-[#012A45] font-bold">
               Trending Providers.
@@ -78,38 +78,36 @@ function LandingPage() {
               Our Top Service Providers.
             </p>
           </div>
-          <div className="flex md:w-1/2 items-center">
-            <div className="absolute md:-mr-72 md:transform md:rotate-12">
-              <ProviderProfileCard
-                name={"Saakshi Raut 1"}
-                category={"Computer Repairs"}
-                description={
-                  "I have experience of 3+ years. And I have provided 10+services"
-                }
-              />
-            </div>
-            <div className="absolute md:-ml-24 md:transform md:-rotate-12">
+
+          <div className="flex items-center justify-center h-screen">
+            {/* Left card tilted to the left */}
+            <div className="absolute md:-ml-36 sm:-ml-48 -ml-24 origin-top-left -rotate-12">
               <ProviderProfileCard
                 name={"Saakshi Raut 2"}
                 category={"Computer Repairs"}
-                description={
-                  "I have experience of 3+ years. And I have provided 10+services"
-                }
+                description={"I have experience of 4+ years. And I have provided 30+ services"}
               />
             </div>
-            {/* Top card */}
-            <div className="relative md:z-10">
+            {/* Right card tilted to the right */}
+            <div className="absolute md:-mr-36 sm:-mr-48 -mr-24 origin-top-right rotate-12">
               <ProviderProfileCard
-                name={"Saakshi Raut"}
+                name={"Saakshi Raut 3"}
                 category={"Computer Repairs"}
-                description={
-                  "I have experience of 3+ years. And I have provided 10+services"
-                }
+                description={"I have experience of 5+ years. And I have provided 50+ services"}
+              />
+            </div>
+            {/* Center card straight */}
+            <div className="relative mx-auto">
+              <ProviderProfileCard
+                name={"Saakshi Raut 1"}
+                category={"Computer Repairs"}
+                description={"I have experience of 3+ years. And I have provided 10+ services"}
               />
             </div>
           </div>
         </div>
       </section>
+
       {/*******    Happy Customer Section      **********/}
       <section className="customer-section px-4 py-12 lg:px-24 lg:py-24 font-poppin space-y-6 justify-center items-center">
         <p className="text-xl md:text-3xl text-[#012A45] font-bold text-center">
@@ -122,6 +120,7 @@ function LandingPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 space-y-4 md:space-y-0">
           <div>
             <ProfileCard
+            img={"https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"}
               name={"Saakshi Raut"}
               category={"Law Student"}
               description={
@@ -131,6 +130,7 @@ function LandingPage() {
           </div>
           <div>
             <ProfileCard
+            img={"https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"}
               name={"Arfia Shaikh"}
               category={"Computer Architect"}
               description={
@@ -140,8 +140,9 @@ function LandingPage() {
           </div>
           <div>
             <ProfileCard
+            img={"https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"}
               name={"Shrimayee Mishra"}
-              category={"Course Directory"}
+              category={"Film Producer"}
               description={
                 "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
               }
