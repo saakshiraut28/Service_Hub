@@ -11,8 +11,15 @@ import Plumber from "../asset/Plumber.svg";
 import Trainer from "../asset/Training.svg";
 import ProfileCard from "../components/ui/ProfileCard.js";
 import { Link } from "react-router-dom";
+import Saakshi from "../asset/Saakshi_Raut.png";
+import Shrimayee from "../asset/Shrimayee_Mishra.png";
+import Person1 from "../asset/Person1.jpg";
+import Person2 from "../asset/Person2.jpg";
+import Person3 from "../asset/Person3.jpg";
+
 
 function LandingPage() {
+
   return (
     <>
       {/*******     Entry Section      **********/}
@@ -107,7 +114,7 @@ function LandingPage() {
             <TeamCard
               fullName="Shrimayee Mishra"
               role="Computer Engineering Student"
-              imgLink="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"
+              imgLink={Shrimayee}
             />
             {/* Circle 3 */}
             <TeamCard
@@ -124,55 +131,55 @@ function LandingPage() {
             <TeamCard
               fullName="Saakshi Raut"
               role="Computer Engineering Student"
-              imgLink="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"
+              imgLink={Saakshi}
             />
           </div>
         </div>
       </section>
       <hr className="m-auto w-[200px] " />
 
-            {/*******    Happy Customer Section      **********/}
-            <section className="customer-section px-4 py-12 lg:px-24 lg:py-24 font-poppin space-y-6 justify-center items-center">
-              <p className="text-xl md:text-3xl text-[#012A45] font-bold text-center">
-                Happy Customers!
-              </p>
-              <p className="text-lg text-[#012A45] font-medium text-center">
-                Provide your valuable feedback on{" "}
-                <span className="text-[#1170B0] underline ">Play Store</span>.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 space-y-4 md:space-y-0">
-                <div>
-                  <ProfileCard
-                  img={"https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"}
-                    name={"Saakshi Raut"}
-                    category={"Law Student"}
-                    description={
-                      "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
-                    }
-                  />
-                </div>
-                <div>
-                  <ProfileCard
-                  img={"https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"}
-                    name={"Arfia Shaikh"}
-                    category={"Computer Architect"}
-                    description={
-                      "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
-                    }
-                  />
-                </div>
-                <div>
-                  <ProfileCard
-                  img={"https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"}
-                    name={"Shrimayee Mishra"}
-                    category={"Film Producer"}
-                    description={
-                      "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
-                    }
-                  />
-                </div>
-              </div>
-            </section>
+      {/*******    Happy Customer Section      **********/}
+      <section className="customer-section px-4 py-12 lg:px-24 lg:py-24 font-poppin space-y-6 justify-center items-center">
+        <p className="text-xl md:text-3xl text-[#012A45] font-bold text-center">
+          Happy Customers!
+        </p>
+        <p className="text-lg text-[#012A45] font-medium text-center">
+          Provide your valuable feedback on{" "}
+          <span className="text-[#1170B0] underline ">Play Store</span>.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 space-y-4 md:space-y-0">
+          <div>
+            <ProfileCard
+            img={Person1}
+              name={"Arthur Peterson"}
+              category={"Law Student"}
+              description={
+                "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
+              }
+            />
+          </div>
+          <div>
+            <ProfileCard
+            img={Person2}
+              name={"Anamika Deshpande"}
+              category={"Computer Architect"}
+              description={
+                "This website has helped me connect with the best service providers. Grateful to Chakde Chores"
+              }
+            />
+          </div>
+          <div>
+            <ProfileCard
+            img={Person3}
+              name={"Aryan Patil"}
+              category={"Film Producer"}
+              description={
+                "This platform has helped me find the best cleaner. Finding someone to clean the set has never been this easy."
+              }
+            />
+          </div>
+        </div>
+      </section>
 
       {/*******     Contact Section      **********/}
       <section className="contact font-poppin text-[#012A45] bg-[#D2EDFA] px-4 py-8 lg:px-24 lg:py-8">

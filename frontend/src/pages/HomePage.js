@@ -10,6 +10,13 @@ import Plumber from "../asset/Plumber.svg";
 import Trainer from "../asset/Training.svg";
 import ProfileCard from "../components/ui/ProfileCard";
 import ProviderProfileCard from "../components/ui/ProviderProfileCard";
+import Person1 from "../asset/Person1.jpg";
+import Person2 from "../asset/Person2.jpg";
+import Person3 from "../asset/Person3.jpg";
+import Person4 from "../asset/Person4.jpg";
+import Person5 from "../asset/Person5.jpg";
+
+
 function LandingPage() {
   return (
     <>
@@ -19,13 +26,11 @@ function LandingPage() {
           <p className="text-pretty">Get your work done</p>
           <p className="text-pretty m-0">In just few clicks ;)</p>
         </p>
-        <p className="text-lg text-[#012A45] font-medium">
-          Sending our helpers to your doorsteps.
-        </p>
-        <input
-          className="bg-white md:min-w-[500px] min0woutline-none hover:border hover:border-[#012A45] rounded-full px-4 py-1"
-          placeholder="Hire someone to do your task."
-        />
+        <div className="text-xl text-[#012A45] font-medium">
+          <p>Sending our helpers to your doorsteps.</p>
+          <br/>
+          <p>Hire someone to do your task.</p>
+        </div>
       </section>
       {/*******     Services Section      **********/}
       <section className="services-section px-4 py-8 lg:px-24 lg:py-24 font-poppin space-y-6 ">
@@ -83,7 +88,8 @@ function LandingPage() {
             {/* Left card tilted to the left */}
             <div className="absolute md:-ml-36 sm:-ml-48 -ml-24 origin-top-left -rotate-12">
               <ProviderProfileCard
-                name={"Saakshi Raut 2"}
+                img={Person4}
+                name={"Sakhi Gupte"}
                 category={"Computer Repairs"}
                 description={"I have experience of 4+ years. And I have provided 30+ services"}
               />
@@ -91,7 +97,8 @@ function LandingPage() {
             {/* Right card tilted to the right */}
             <div className="absolute md:-mr-36 sm:-mr-48 -mr-24 origin-top-right rotate-12">
               <ProviderProfileCard
-                name={"Saakshi Raut 3"}
+                img={Person5}
+                name={"Aman Mehra"}
                 category={"Computer Repairs"}
                 description={"I have experience of 5+ years. And I have provided 50+ services"}
               />
@@ -99,9 +106,10 @@ function LandingPage() {
             {/* Center card straight */}
             <div className="relative mx-auto">
               <ProviderProfileCard
-                name={"Saakshi Raut 1"}
-                category={"Computer Repairs"}
-                description={"I have experience of 3+ years. And I have provided 10+ services"}
+                img={Person5}
+                name={"Shanaya Kukreja"}
+                category={"Repairing electronics"}
+                description={"I have experience of 7+ years of experience in repairing electronics.My expertise helps in extending the life of your electronic products."}
               />
             </div>
           </div>
@@ -120,8 +128,8 @@ function LandingPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 space-y-4 md:space-y-0">
           <div>
             <ProfileCard
-            img={"https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"}
-              name={"Saakshi Raut"}
+            img={Person1}
+              name={"Arthur Peterson"}
               category={"Law Student"}
               description={
                 "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
@@ -130,21 +138,21 @@ function LandingPage() {
           </div>
           <div>
             <ProfileCard
-            img={"https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"}
-              name={"Arfia Shaikh"}
+            img={Person2}
+              name={"Anamika Deshpande"}
               category={"Computer Architect"}
               description={
-                "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
+                "This website has helped me connect with the best service providers. Grateful to Chakde Chores"
               }
             />
           </div>
           <div>
             <ProfileCard
-            img={"https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"}
-              name={"Shrimayee Mishra"}
+            img={Person3}
+              name={"Aryan Patil"}
               category={"Film Producer"}
               description={
-                "Really amazing platform. I have been using the site since 3 weeks and it is a great experience."
+                "This platform has helped me find the best cleaner. Finding someone to clean the set has never been this easy."
               }
             />
           </div>

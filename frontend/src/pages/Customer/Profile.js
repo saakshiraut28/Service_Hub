@@ -1,6 +1,7 @@
 /** @format */
 
 import { useState, useEffect } from "react";
+import ButtonLight from "../../components/ui/ButtonLight";
 
 export default function ProfileComponent() {
   const [user, setUser] = useState(""); // Initialize user state to null
@@ -39,15 +40,17 @@ export default function ProfileComponent() {
           </div>
           <div className="text md:w-2/3 lg:w-4/5 lg:pl-16 lg:pr-16">
             <div className="heading name text-lg font-regular text-center md:text-justify md:pt-8">
-              Name: {user.name}
+              <span className = "font-bold">Name: </span>{user.name}
             </div>
             <div className="city text-center md:text-justify md:text-lg xl:pb-4">
-              Contact Details: {user.email} | {user.contact}
+            <span className = "font-bold">Contact Details: </span>{user.email} | {user.contact}
             </div>
             <div className="bio m-8 mb-5 mt-1 text-justify md:ml-0 text-lg">
-              Address: {user.address}
+              <span className = "font-bold">Address: </span>{user.address}
             </div>
+            <ButtonLight title="Edit Details" />
           </div>
+          
         </div>
       </div>
     </div>
