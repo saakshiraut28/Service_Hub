@@ -1,5 +1,9 @@
 /** @format */
-import React from "react";
+import React, { useRef } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import SlideShow from "../components/ui/SliderService";
 import Maid from "../asset/Housekeeping.svg";
 import Cook from "../asset/Cook.svg";
@@ -18,6 +22,37 @@ import Person5 from "../asset/Person5.jpg";
 
 
 function LandingPage() {
+  const slider = useRef(null);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
   return (
     <>
       {/*******     Hero Section      **********/}
@@ -33,43 +68,65 @@ function LandingPage() {
         </div>
       </section>
       {/*******     Services Section      **********/}
-      <section className="services-section px-4 py-8 lg:px-24 lg:py-24 font-poppin space-y-6 ">
+      <section className="services-section px-4 py-8 lg:px-24 lg:py-8 font-poppin space-y-6">
         <p className="text-xl md:text-3xl text-[#012A45] font-bold py-3">
-          Search from the below categories:
+            Search from the below categories:
         </p>
-        {/* <SlideShow /> */}
-        <div className="services flex flex-col md:flex-row  justify-center md:justify-around items-center py-3">
-          <div
-            title="Electrician"
-            className="w-[65px] h-[65px] md:w-[100px] md:h-[100px] my-2 mx-2 flex justify-center items-center bg-[#D9D9D9] rounded-full shadow-lg hover:border hover:border-[#012A45]"
-          >
-            <img alt="Icons" width="40px" src={Electric} />
-          </div>
-          <div
-            title="Gardener"
-            className="w-[65px] h-[65px] md:w-[100px] md:h-[100px] my-2 mx-2 flex justify-center items-center bg-[#D9D9D9] rounded-full shadow-lg hover:border hover:border-[#012A45]"
-          >
-            <img alt="Icons" width="40px" src={Garden} />
-          </div>
-          <div
-            title="Pet Care"
-            className="w-[65px] h-[65px] md:w-[100px] md:h-[100px] my-2 mx-2 flex justify-center items-center bg-[#D9D9D9] rounded-full shadow-lg hover:border hover:border-[#012A45]"
-          >
-            <img alt="Icons" width="40px" src={Petcare} />
-          </div>
-          <div
-            title="Tutor"
-            className="w-[65px] h-[65px] md:w-[100px] md:h-[100px] my-2 mx-2 flex justify-center items-center bg-[#D9D9D9] rounded-full shadow-lg hover:border hover:border-[#012A45]"
-          >
-            <img alt="Icons" width="40px" src={Trainer} />
-          </div>
-          <div
-            title="Plumber"
-            className="w-[65px] h-[65px] md:w-[100px] md:h-[100px] my-2 mx-2 flex justify-center items-center bg-[#D9D9D9] rounded-full shadow-lg hover:border hover:border-[#012A45]"
-          >
-            <img alt="Icons" width="40px" src={Plumber} />
-          </div>
+        <button
+            className="slider-arrow prev"
+            onClick={() => slider.current.slickPrev()}>
+            <FaChevronLeft />
+        </button>
+        <div className="services-slider relative">
+            <Slider ref={slider} {...settings}>
+            <div>
+                <div
+                title="Electrician"
+                className="service-icon"
+                >
+                <img alt="Icons" width="40px" src={Electric} />
+                </div>
+            </div>
+            <div>
+                <div
+                title="Gardener"
+                className="service-icon"
+                >
+                <img alt="Icons" width="40px" src={Garden} />
+                </div>
+            </div>
+            <div>
+                <div
+                title="Pet Care"
+                className="service-icon"
+                >
+                <img alt="Icons" width="40px" src={Petcare} />
+                </div>
+            </div>
+            <div>
+                <div
+                title="Tutor"
+                className="service-icon"
+                >
+                <img alt="Icons" width="40px" src={Trainer} />
+                </div>
+            </div>
+            <div>
+                <div
+                title="Plumber"
+                className="service-icon"
+                >
+                <img alt="Icons" width="40px" src={Plumber} />
+                </div>
+            </div>
+            </Slider>
         </div>
+        <button
+            className="slider-arrow next"
+            onClick={() => slider.current.slickNext()}
+        >
+            <FaChevronRight />
+        </button>
       </section>
       
       {/*******     Trending Providers Section      **********/}
