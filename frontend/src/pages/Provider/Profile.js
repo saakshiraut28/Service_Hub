@@ -41,16 +41,16 @@ export default function ProviderProfileComponent() {
           </div>
           <div className="text md:w-2/3 lg:w-4/5 lg:pl-16 lg:pr-16">
             <div className="heading name text-lg font-regular text-center md:text-justify md:pt-8">
-              Name: {provider.name}
+              <span className="font-bold">Name: </span>{provider.name}
             </div>
             <div className="city text-center md:text-justify md:text-lg xl:pb-4">
-              Contact Details: {provider.email} | {provider.contact}
+              <span className="font-bold">Contact Details: </span>{provider.email} | {provider.contact}
               <br />
-              Bio: {provider.bio}
+              <span className="font-bold">Bio:  </span>{provider.bio}
               <br />
-              Category: {provider.category}
+              <span className="font-bold">Category:  </span>{provider.category}
               <br />
-              Address: {provider.address}
+              <span className="font-bold">Address: </span>{provider.address}
             </div>
             <ButtonLight title="Edit Details" />
           </div>

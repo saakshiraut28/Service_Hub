@@ -15,7 +15,7 @@ function ProviderProfileCard({ img, name, category, description }) {
       <CardBody className="text-center flex flex-col items-center justify-center ">
         <div className="w-[150px] h-[150px] my-2 mx-2 flex justify-center items-center bg-[#D9D9D9] rounded-full shadow-lg hover:border hover:border-[#012A45] overflow-hidden">
           <img
-            src="https://unsplash.com/photos/woman-standing-on-middle-of-road-_dH-oQF9w-Y"
+            src={img}
             alt="profile-picture"
             height="200px"
             width="200px"
