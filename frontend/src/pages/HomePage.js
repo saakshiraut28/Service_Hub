@@ -69,64 +69,53 @@ function LandingPage() {
       </section>
       {/*******     Services Section      **********/}
       <section className="services-section px-4 py-8 lg:px-24 lg:py-8 font-poppin space-y-6">
-        <p className="text-xl md:text-3xl text-[#012A45] font-bold py-3">
+        <p className="text-xl md:text-3xl text-[#012A45] font-bold py-3 text-center">
             Search from the below categories:
         </p>
-        <button
-            className="slider-arrow prev"
-            onClick={() => slider.current.slickPrev()}>
-            <FaChevronLeft />
-        </button>
-        <div className="services-slider relative">
-            <Slider ref={slider} {...settings}>
-            <div>
-                <div
-                title="Electrician"
-                className="service-icon"
-                >
-                <img alt="Icons" width="40px" src={Electric} />
-                </div>
-            </div>
-            <div>
-                <div
-                title="Gardener"
-                className="service-icon"
-                >
-                <img alt="Icons" width="40px" src={Garden} />
-                </div>
-            </div>
-            <div>
-                <div
-                title="Pet Care"
-                className="service-icon"
-                >
-                <img alt="Icons" width="40px" src={Petcare} />
-                </div>
-            </div>
-            <div>
-                <div
-                title="Tutor"
-                className="service-icon"
-                >
-                <img alt="Icons" width="40px" src={Trainer} />
-                </div>
-            </div>
-            <div>
-                <div
-                title="Plumber"
-                className="service-icon"
-                >
-                <img alt="Icons" width="40px" src={Plumber} />
-                </div>
-            </div>
-            </Slider>
-        </div>
-        <button
-            className="slider-arrow next"
-            onClick={() => slider.current.slickNext()}
-        >
-            <FaChevronRight />
-        </button>
+          <div className="ml-28 services-slider relative">
+              <Slider ref={slider} {...settings}>
+              <div>
+                  <div
+                  title="Electrician"
+                  className="service-icon"
+                  >
+                  <img alt="Icons" width="40px" src={Electric} />
+                  </div>
+              </div>
+              <div>
+                  <div
+                  title="Gardener"
+                  className="service-icon"
+                  >
+                  <img alt="Icons" width="40px" src={Garden} />
+                  </div>
+              </div>
+              <div>
+                  <div
+                  title="Pet Care"
+                  className="service-icon"
+                  >
+                  <img alt="Icons" width="40px" src={Petcare} />
+                  </div>
+              </div>
+              <div>
+                  <div
+                  title="Tutor"
+                  className="service-icon"
+                  >
+                  <img alt="Icons" width="40px" src={Trainer} />
+                  </div>
+              </div>
+              <div>
+                  <div
+                  title="Plumber"
+                  className="service-icon"
+                  >
+                  <img alt="Icons" width="40px" src={Plumber} />
+                  </div>
+              </div>
+              </Slider>
+          </div>
       </section>
       
       {/*******     Trending Providers Section      **********/}

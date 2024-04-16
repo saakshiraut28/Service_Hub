@@ -18,6 +18,7 @@ import ProfileCard from "../components/ui/ProfileCard.js";
 import { Link } from "react-router-dom";
 import Saakshi from "../asset/Saakshi_Raut.png";
 import Shrimayee from "../asset/Shrimayee_Mishra.png";
+import Arfia from "../asset/Arfia_Shaikh.png";
 import Person1 from "../asset/Person1.jpg";
 import Person2 from "../asset/Person2.jpg";
 import Person3 from "../asset/Person3.jpg";
@@ -80,64 +81,53 @@ function LandingPage() {
 
       {/*******     Services Section      **********/}
       <section className="services-section px-4 py-8 lg:px-24 lg:py-8 font-poppin space-y-6">
-        <p className="text-xl md:text-3xl text-[#012A45] font-bold py-3">
+        <p className="text-xl md:text-3xl text-[#012A45] font-bold py-3 text-center">
             Search from the below categories:
         </p>
-        <button
-            className="slider-arrow prev"
-            onClick={() => slider.current.slickPrev()}>
-            <FaChevronLeft />
-        </button>
-        <div className="services-slider relative">
-            <Slider ref={slider} {...settings}>
-            <div>
-                <div
-                title="Electrician"
-                className="service-icon"
-                >
-                <img alt="Icons" width="40px" src={Electric} />
-                </div>
-            </div>
-            <div>
-                <div
-                title="Gardener"
-                className="service-icon"
-                >
-                <img alt="Icons" width="40px" src={Garden} />
-                </div>
-            </div>
-            <div>
-                <div
-                title="Pet Care"
-                className="service-icon"
-                >
-                <img alt="Icons" width="40px" src={Petcare} />
-                </div>
-            </div>
-            <div>
-                <div
-                title="Tutor"
-                className="service-icon"
-                >
-                <img alt="Icons" width="40px" src={Trainer} />
-                </div>
-            </div>
-            <div>
-                <div
-                title="Plumber"
-                className="service-icon"
-                >
-                <img alt="Icons" width="40px" src={Plumber} />
-                </div>
-            </div>
-            </Slider>
-        </div>
-        <button
-            className="slider-arrow next"
-            onClick={() => slider.current.slickNext()}
-        >
-            <FaChevronRight />
-        </button>
+          <div className="ml-28 services-slider relative">
+              <Slider ref={slider} {...settings}>
+              <div>
+                  <div
+                  title="Electrician"
+                  className="service-icon"
+                  >
+                  <img alt="Icons" width="40px" src={Electric} />
+                  </div>
+              </div>
+              <div>
+                  <div
+                  title="Gardener"
+                  className="service-icon"
+                  >
+                  <img alt="Icons" width="40px" src={Garden} />
+                  </div>
+              </div>
+              <div>
+                  <div
+                  title="Pet Care"
+                  className="service-icon"
+                  >
+                  <img alt="Icons" width="40px" src={Petcare} />
+                  </div>
+              </div>
+              <div>
+                  <div
+                  title="Tutor"
+                  className="service-icon"
+                  >
+                  <img alt="Icons" width="40px" src={Trainer} />
+                  </div>
+              </div>
+              <div>
+                  <div
+                  title="Plumber"
+                  className="service-icon"
+                  >
+                  <img alt="Icons" width="40px" src={Plumber} />
+                  </div>
+              </div>
+              </Slider>
+          </div>
       </section>
       <hr className="m-auto w-[200px] " />
 
@@ -176,7 +166,7 @@ function LandingPage() {
             <TeamCard
               fullName="Arfia Shaikh"
               role="Computer Engineering Student"
-              imgLink="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_640.png"
+              imgLink={Arfia}
             />
           </div>
           <div
